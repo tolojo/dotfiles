@@ -1,0 +1,31 @@
+# Reload functions
+super + Escape
+	"$XDG_CONFIG_HOME"/sxhkd/functions
+
+#Open Terminal
+super + Return
+	alacritty
+
+#Program Launcher
+super + @space
+	dmenu_run
+
+#Reload sxhkd configurations
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+#	BSPWM HOTKEYS
+#
+
+#Close and restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+#Close and kill window
+super + {-,shift + }w
+	bspc node -{c,k}
+
+#Hop through virtual desktops
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,window -d} ^{1-9,10}
